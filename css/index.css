@@ -1,0 +1,49 @@
+@font-face{ 
+  font-family: 'Brushstroke Plain'; 
+  src: url('BRUSHSTP-webfont.eot'); 
+  src: url('BRUSHSTP-webfont.eot?iefix') format('eot'), 
+  url('BRUSHSTP-webfont.woff') format('woff'), 
+  url('BRUSHSTP-webfont.ttf') format('truetype'), 
+  url('BRUSHSTP-webfont.svg#webfont') format('svg'); 
+}
+
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: 3000px;
+  text-align:center;
+  font-family: 'Brushstroke Plain','Trebuchet MS',Arial;
+  color:#fff;
+}
+#wrapper {
+  background-color: rgba(28,22,13,0.8);
+  color: #fff;
+  text-align: left;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+}
+#tabs .ui-widget-header {
+  background: none;
+  border: none;
+}
+#tabs {
+  background: none;
+  border: none;
+}
+#tabs .ui-tabs-panel {
+  background: url("../../HelloGame/css/mint-choc/images/ui-bg_inset-soft_10_201913_1x100.png") repeat-x scroll 50% bottom #201913;
+  border: 1px solid #9C947C;
+}
+#title {
+  text-align:center;
+  font-size: 56px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+span.home, span.play, span.help, span.about {
+  text-decoration: underline;
+  cursor:pointer;
+}

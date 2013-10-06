@@ -1,0 +1,114 @@
+#viewport {
+  outline-color: transparent;
+  position: relative;
+  width: 320px;
+  height: 480px;
+  border: 2px solid #8E7755;
+  overflow:hidden;
+}
+#canvas {
+  position: absolute;
+  left:0px;
+  top:0px;
+  width: 320px;
+  height: 480px;
+  background-color: #ababab;
+  display:block;
+}
+.flr,.foreground {
+  position:absolute;
+  left:0px;
+  top:0px;
+  display:block;
+  background-image: url("../images/tileset.png");
+  width: 32px;
+  height: 32px;
+}
+.flr.grass {
+  background-position: 0px 0px;
+}
+.bacon {
+  position:absolute;
+  left:0;
+  top:0;
+  display:block;
+  background-image: url("../images/bacon.png");
+  width:16px;
+  height:16px;
+}
+.platedBacon {
+  position:absolute;
+  left:0;
+  top:0;
+  display:block;
+  background-image: url("../images/bacon.png");
+  width:16px;
+  height:16px;
+  transform:rotate(45deg);
+}
+.table {
+  background-position: -160px 0px;
+  width: 64px;
+  height: 64px;
+}
+.plate {
+  position:absolute;
+  left:0;
+  top:0;
+  background-image: url("../images/tileset2.png");
+  background-position: -256px -384px;
+  width:32px;
+  height:32px;
+  display:block;
+}
+.hero {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:32px;
+  height:48px;
+  display:block;
+}
+.boy {
+  background-image: url("../images/boy.png");
+}
+.girl {
+  background-image: url("../images/girl.png");
+}
+.hero.down {
+  background-position: -32px 0px;
+}
+.hero.down.A {
+  background-position: 0px 0px;
+}
+.hero.down.B {
+  background-position: -64px 0px;
+}
+.hero.up.A {
+  background-position: 0px -144px;
+}
+.hero.up.B {
+  background-position: -64px -144px;
+}
+.hero.up {
+  background-position: -32px -144px;
+}
+.hero.left.A {
+  background-position: 0px -48px;
+}
+.hero.left.B {
+  background-position: -64px -48px;
+}
+.hero.left {
+  background-position: -32px -48px;
+}
+.hero.right.A {
+  background-position: 0px -96px;
+}
+.hero.right.B {
+  background-position: -64px -96px;
+}
+.hero.right {
+  background-position: -32px -96px;
+}
+
