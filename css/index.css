@@ -6,14 +6,13 @@
   url('BRUSHSTP-webfont.ttf') format('truetype'), 
   url('BRUSHSTP-webfont.svg#webfont') format('svg'); 
 }
-
 body {
   background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
   background-position: fixed;
   background-size: 3000px;
   text-align:center;
-  font-family: 'Brushstroke Plain','Trebuchet MS',Arial;
+  font-family: 'Bitstream Vera Serif','Trebuchet MS',Arial;
   color:#fff;
 }
 #wrapper {
@@ -33,7 +32,7 @@ body {
   border: none;
 }
 #tabs .ui-tabs-panel {
-  background: url("../../HelloGame/css/mint-choc/images/ui-bg_inset-soft_10_201913_1x100.png") repeat-x scroll 50% bottom #201913;
+  background: url("http://code.jquery.com/ui/1.10.3/themes/mint-choc/images/ui-bg_inset-soft_10_201913_1x100.png") repeat-x scroll 50% bottom #201913;
   border: 1px solid #9C947C;
 }
 #title {
@@ -42,6 +41,9 @@ body {
   font-weight: normal;
   padding: 0;
   margin: 0;
+  font-family: 'Brushstroke Plain','Bitstream Vera Sans','Trebuchet MS',Arial;
+}
+p.intro {
 }
 span.home, span.play, span.help, span.about {
   text-decoration: underline;
