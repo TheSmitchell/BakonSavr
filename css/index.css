@@ -70,4 +70,8 @@ span.home, span.play, span.help, span.about {
   vertical-align:middle;
   display:block;
 }
-
+#footer {
+  font-size:x-small;
+  width:100%;
+  text-align:center;
+}
