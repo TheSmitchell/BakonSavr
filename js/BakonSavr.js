@@ -15,6 +15,11 @@ var keyHandler = function (e) {
   return BakonSavr.keyHandler(e);
 }
 
+var newGame = function (e) {
+  BakonSavr.newGame();
+  return false;
+}
+
 BaconSaver.prototype = {
   init : function () {
            this.allMoves = "left up right down A B";
@@ -23,7 +28,17 @@ BaconSaver.prototype = {
            this.initChar();
            this.initForeground();
            $('#viewport').attr('tabindex',-1).focus().keydown(keyHandler);
+           $('#newGame').click(newGame);
          },
+  newGame : function () {
+              $('#canvas').children().remove();
+              this.initBackground();
+              this.initChar();
+              this.initForeground();
+              $('#viewport').attr('tabindex',-1).focus();
+              this.baconCounter = 0;
+              this.baconPlated = 0;
+           },
   initBackground: function () {
                     var tileW = this.canvas.width()/this.units;
                     var tileH = this.canvas.height()/this.units;
@@ -61,7 +76,7 @@ BaconSaver.prototype = {
                       var x;
                       do {
                         x = ((Math.random() * 100) % xM);
-                      } while ( x < 5 && y < 5 || (x >= 5 && x <=6 && y >=5 && y <= 6));
+                      } while ( x < 5 && y < 5 || this.onTable(x,y));
                       bacon.css('left',this.units * x);
                       bacon.css('top',this.units * y);
                       bacon.css('transform', 'rotate(' + 45 * ((Math.random() * 100) % 8) + 'deg)');
@@ -77,6 +92,10 @@ BaconSaver.prototype = {
                   case 38:
                   case 39:
                   case 40:
+                  case 65:
+                  case 68:
+                  case 83:
+                  case 87:
                     event.preventDefault(); 
                     this.doMove(event.which);
                     break;
@@ -111,10 +130,14 @@ BaconSaver.prototype = {
               var dist = this.units/2;
               var left = false;
               switch (dir) {
-                case 37: left=true;
-                case 38: dist = -dist; break;
-                case 39: left=true;
-                case 40: break;
+                case 37:
+                case 65: left=true;
+                case 38:
+                case 87: dist = -dist; break;
+                case 39: 
+                case 68: left=true;
+                case 40: 
+                case 83: break;
               }
               var cL = this.user.position().left;
               var cT = this.user.position().top;
@@ -133,16 +156,38 @@ BaconSaver.prototype = {
   faces: function (dir) {
            d = 'left';
            switch (dir) {
-             case 37: break;
-             case 38: d='up';break;
-             case 39: d='right';break;
-             case 40: d='down';break;
+             case 37:
+             case 65: break;
+             case 38:
+             case 87: d='up';break;
+             case 39:
+             case 68: d='right';break;
+             case 40:
+             case 83: d='down';break;
            }
            if (this.user.hasClass(d)) {
              return true;
            }
            return false;
          },
+  onTable: function (x, y) {
+             var pos1 = new Object();
+             pos1.L = this.units * x;
+             pos1.T = this.units * y;
+             pos1.R = pos1.L + 16;
+             pos1.B = pos1.T + 16;
+             var table = $('.table');
+             l = this.shrink.table.left;
+             t = this.shrink.table.top;
+             r = this.shrink.table.right;
+             b = this.shrink.table.bottom;
+             var pos2 = new Object();
+             pos2.L = table.position().left + l;
+             pos2.T = table.position().top + t;
+             pos2.R = table.position().left + table.width() - r;
+             pos2.B = table.position().top + table.height() - b;
+             return this.collides(pos1,pos2);
+           },
   collides: function (pos1, pos2) {
               //if ((pL < bR && pR > bL) && (pT < bB && pB > bT)) then collides = true;
               if ((pos1.L < pos2.R && pos1.R > pos2.L) && (pos1.T < pos2.B && pos1.B > pos2.T)) {
@@ -208,10 +253,14 @@ BaconSaver.prototype = {
               var d='left';
               var t='A';
               switch (dir) {
-                case 37: break;
-                case 38: d='up';break;
-                case 39: d='right';break;
-                case 40: d='down';break;
+                case 37:
+                case 65:  break;
+                case 38:
+                case 87: d='up';break;
+                case 39:
+                case 68: d='right';break;
+                case 40:
+                case 83: d='down';break;
               }
               if (this.user.hasClass('A')) {
                 t='B';
