@@ -15,6 +15,9 @@ body {
   font-family: 'Bitstream Vera Serif','Trebuchet MS',Arial;
   color:#fff;
 }
+a:link,a:hover,a:visited {
+  color:#9BCC60;
+}
 #wrapper {
   background-color: rgba(28,22,13,0.8);
   color: #fff;
@@ -58,7 +61,10 @@ span.home, span.play, span.help, span.about {
   vertical-align:middle;
   display:block;
 }
-
+img.bakon {
+  vertical-align: middle;
+  transform: rotate(45deg);
+}
 #newGame, #newGame span.ui-button-text {
   width: 100px;
   white-space: nowrap;
