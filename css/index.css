@@ -64,6 +64,10 @@ span.home, span.play, span.help, span.about {
 img.bakon {
   vertical-align: middle;
   transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
+  -o-transform: rotate(45deg); /* Opera */
+  -moz-transform: rotate(45deg); /* Firefox */
 }
 #newGame, #newGame span.ui-button-text {
   width: 100px;

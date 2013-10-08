@@ -10,6 +10,7 @@ var BaconSaver = function () {
   this.shrink  = { table : {left : 0, top : 16, right: 0, bottom: 0} } ;
   this.baconCounter = 0;
   this.baconPlated = 0;
+  this.depositSlot = { L : 0, T : 0, R : 0, B : 0};
 };
 var keyHandler = function (e) {
   return BakonSavr.keyHandler(e);
@@ -57,6 +58,11 @@ BaconSaver.prototype = {
                     plate.css('left',this.units*5.5);
                     plate.css('top',this.units*5.5);
                     this.canvas.append(plate);
+                    this.depositSlot.L = this.units * 5.5;
+                    this.depositSlot.T = this.units * 4;
+                    this.depositSlot.R = this.units * 6.5;
+                    this.depositSlot.B = this.units * 5;
+
                     this.makinBakin();
                   },
   initChar: function () {
@@ -114,12 +120,20 @@ BaconSaver.prototype = {
           },
   plateBacon: function () {
                 var plate = $('.plate');
+                var userPos = new Object();
+                userPos.L = parseInt(this.user.css('left'));
+                userPos.T = parseInt(this.user.css('top'));
+                userPos.R = userPos.L + this.user.width();
+                userPos.B = userPos.T + this.user.height();
+                
+                console.log(userPos);    
+                console.log(this.depositSlot);
 
-                if (plate.position().left === this.user.position().left && plate.position().top === (this.user.position().top + this.user.height())) {
+                if (this.collides(userPos,this.depositSlot)) {
                   for (; this.baconPlated < this.baconCounter; ++this.baconPlated) {
                     var bacon = $('<div class="platedBacon"></div>');
-                    bacon.css('left',plate.position().left + 8);
-                    bacon.css('top',plate.position().top - (this.baconPlated*2));
+                    bacon.css('left',parseInt(plate.css('left')) + 8);
+                    bacon.css('top',parseInt(plate.css('top')) - (this.baconPlated*2));
                     this.canvas.append(bacon);
                   }
                   $('#baconPlated').text(this.baconPlated);
@@ -127,7 +141,7 @@ BaconSaver.prototype = {
                 }
               },
   calcMove: function (dir) {
-              var dist = this.units/2;
+              var dist = 16;
               var left = false;
               switch (dir) {
                 case 37:
@@ -139,8 +153,8 @@ BaconSaver.prototype = {
                 case 40: 
                 case 83: break;
               }
-              var cL = this.user.position().left;
-              var cT = this.user.position().top;
+              var cL = parseInt(this.user.css('left'));
+              var cT = parseInt(this.user.css('top'));
               var nL = cL;
               var nT = cT;
               if (left) {
@@ -148,9 +162,13 @@ BaconSaver.prototype = {
               } else {
                 nT = Math.max(Math.min(nT+dist, this.canvas.height() - this.user.height()),0);
               }
+              nL = Math.floor(nL);
+              nT = Math.floor(nT);
               if (!this.bump({left: nL, top: nT},this.user.width(),this.user.height())) {
-                this.user.css('left',nL);
-                this.user.css('top',nT);
+                this.user.css('left',nL + "px");
+                this.user.css('top',nT + "px");
+                console.log(nL);
+                console.log(nT);
               }
             },
   faces: function (dir) {
@@ -182,10 +200,10 @@ BaconSaver.prototype = {
              r = this.shrink.table.right;
              b = this.shrink.table.bottom;
              var pos2 = new Object();
-             pos2.L = table.position().left + l;
-             pos2.T = table.position().top + t;
-             pos2.R = table.position().left + table.width() - r;
-             pos2.B = table.position().top + table.height() - b;
+             pos2.L = parseInt(table.css('left')) + l;
+             pos2.T = parseInt(table.css('top')) + t;
+             pos2.R = parseInt(table.css('left')) + table.width() - r;
+             pos2.B = parseInt(table.css('top')) + table.height() - b;
              return this.collides(pos1,pos2);
            },
   collides: function (pos1, pos2) {
@@ -216,10 +234,10 @@ BaconSaver.prototype = {
                   b = this.shrink.table.bottom;
                 }
                 var pos2 = new Object();
-                pos2.L = block.position().left + l;
-                pos2.T = block.position().top + t;
-                pos2.R = block.position().left + block.width() - r;
-                pos2.B = block.position().top + block.height() - b;
+                pos2.L = parseInt(block.css('left')) + l;
+                pos2.T = parseInt(block.css('top')) + t;
+                pos2.R = parseInt(block.css('left')) + block.width() - r;
+                pos2.B = parseInt(block.css('top')) + block.height() - b;
                 if (this.collides(pos1, pos2)) {
                   return true;
                 }
@@ -228,10 +246,10 @@ BaconSaver.prototype = {
             },
   collect: function() {
              var pos1 = new Object();
-             pos1.L = this.user.position().left;
-             pos1.T = this.user.position().top + 32;
+             pos1.L = parseInt(this.user.css('left'));
+             pos1.T = parseInt(this.user.css('top')) + 32;
              pos1.R = pos1.L + this.user.width();
-             pos1.B = this.user.position().top + this.user.height();
+             pos1.B = parseInt(this.user.css('top')) + this.user.height();
              var bacons = $('.bacon');
              for (i=0;i<bacons.length;++i) {
                var bacon = $(bacons[i]);
