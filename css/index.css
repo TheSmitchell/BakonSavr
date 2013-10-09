@@ -1,0 +1,87 @@
+@font-face{ 
+  font-family: 'Brushstroke Plain'; 
+  src: url('BRUSHSTP-webfont.eot'); 
+  src: url('BRUSHSTP-webfont.eot?iefix') format('eot'), 
+  url('BRUSHSTP-webfont.woff') format('woff'), 
+  url('BRUSHSTP-webfont.ttf') format('truetype'), 
+  url('BRUSHSTP-webfont.svg#webfont') format('svg'); 
+}
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: 3000px;
+  text-align:center;
+  font-family: 'Bitstream Vera Serif','Trebuchet MS',Arial;
+  color:#fff;
+}
+a:link,a:hover,a:visited {
+  color:#9BCC60;
+}
+#wrapper {
+  background-color: rgba(28,22,13,0.8);
+  color: #fff;
+  text-align: left;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+}
+#tabs .ui-widget-header {
+  background: none;
+  border: none;
+}
+#tabs {
+  background: none;
+  border: none;
+}
+#tabs .ui-tabs-panel {
+  background: url("http://code.jquery.com/ui/1.10.3/themes/mint-choc/images/ui-bg_inset-soft_10_201913_1x100.png") repeat-x scroll 50% bottom #201913;
+  border: 1px solid #9C947C;
+}
+#title {
+  text-align:center;
+  font-size: 56px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  font-family: 'Brushstroke Plain','Bitstream Vera Sans','Trebuchet MS',Arial;
+}
+p.intro {
+}
+span.home, span.play, span.help, span.about {
+  text-decoration: underline;
+  cursor:pointer;
+}
+.key, .key span.ui-button-text {
+  width:48px;
+  height:48px;
+  line-height:48px;
+  padding: 0;
+  margin: 0;
+  vertical-align:middle;
+  display:block;
+}
+img.bakon {
+  vertical-align: middle;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari and Chrome */
+  -o-transform: rotate(45deg); /* Opera */
+  -moz-transform: rotate(45deg); /* Firefox */
+}
+#newGame, #newGame span.ui-button-text {
+  width: 100px;
+  white-space: nowrap;
+  text-align:center;
+  height:48px;
+  line-height:48px;
+  padding: 0;
+  margin: 0;
+  vertical-align:middle;
+  display:block;
+}
+#footer {
+  font-size:x-small;
+  width:100%;
+  text-align:center;
+}

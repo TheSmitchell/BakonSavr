@@ -1,0 +1,133 @@
+<!doctype html />
+<html>
+  <head>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/mint-choc/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/bakonsavr.css" />
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/BakonSavr.js"></script>
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1 id="title">BakonSavr</h1>
+      <div id="tabs">
+        <ul>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#play">Play</a></li>
+          <li><a href="#help">Tutorial</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <div id="intro"><div class="intro">
+          <p>A world on the brink of total annihilation, we are moments away from the bitter end. It is hopeless. We hurtle into the black, screaming, cowering in fear. There is nothing we can do.
+          <p>Alas, what is this? A faint glimmer of hope? Nigh. It cannot be! We, who have all but given up. It is you! The embodiment of fortitude, perseverance, and <em>chutzpah</em>! We thought you moved. Nevertheless! Hope has returned! Oh, great Hero. It is only you and you alone <span class="play">who can save the world...</span>
+        </div>
+        </div>
+        <div id="play">
+          <table>
+            <tr>
+              <td>
+                <div id="viewport"><div id="canvas"></div></div>
+              </td>
+              <td style="padding-left:20px;vertical-align:top;">
+                <p>Bacon <img src="./images/bacon.png" class="bakon" /> Stats!
+                <ul>
+                  <li>Free Bacon <img src="./images/bacon.png" class="bakon" />: <span id="baconLeft"></span></li>
+                  <li>Pocket Bacon <img src="./images/bacon.png" class="bakon" />: <span id="baconCollected"></span></li>
+                  <li>Plated Bacon <img src="./images/bacon.png" class="bakon" />: <span id="baconPlated"></span></li>
+                </ul>
+                <div id="newGame">New Game</div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="help">
+          <h2>Goal</h2>
+          <p>Pick up all the bacon <img src="./images/bacon.png" class="bakon"/> and put it on the plate.
+          <h2>Controls</h2>
+          <h3>Movement</h3>
+          <table>
+            <tr>
+              <td colspan="2">Use the Arrow Keys or "WASD" to move around the map</td>
+            </tr>
+            <tr>
+              <td>
+                <table>
+                  <tr>
+                    <td></td>
+                    <td><div id="up" class="key"></div></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><div id="left" class="key"></div></td>
+                    <td><div id="down" class="key"></div></td>
+                    <td><div id="right" class="key"></div></td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <table>
+                  <tr>
+                    <td></td>
+                    <td><div id="w" class="key">W</div></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><div id="a" class="key">A</div></td>
+                    <td><div id="s" class="key">S</div></td>
+                    <td><div id="d" class="key">D</div></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <h3>Collect Bacon <img src="./images/bacon.png" class="bakon" /></h3>
+          <p>Walk over the bacon <img src="./images/bacon.png" class="bakon" /> by using the arrow keys (see "Movement").
+          <h3>Plate Bacon <img src="./images/bacon.png" class="bakon" /></h3>
+          <p>Walk to the plate. Hit "Enter" to plate the bacon <img src="./images/bacon.png" class="bakon" />. Your glorious stack of plated bacon <img src="./images/bacon.png" class="bakon"/> will grow proportionately to the amount of bacon <img src="./images/bacon.png" class="bakon"/> you collected.
+          <h2>Troubleshooting</h2>
+          <h3>When I press the arrow keys, the window scrolls...</h3>
+          <p>Either click in the game window or click on the "Play" tab. This should return focus to the game.
+          <h3>I have a Moo-bile device and want to play!</h3>
+          <p>We currently do not support Moo-bile devices. 
+          <h2>Known Issues</h2>
+          <ul>
+            <li>IE - Can't plate bacon <img src="./images/bacon.png" class="bakon" /></li>
+            <li>Safari - untested</li>
+            <li>Chrome - untested</li>
+          </ul>
+        </div>
+        <div id="about">
+          <h2>About</h2>
+          <p>You can find even more of my crap on GitHub. Just visit <a href="https://github.com/TheSmitchell">TheSmitchell</a>.
+          <h3>Credits</h3>
+          <p>People sprites and plate are from <a href="http://www.tekepon.net/fsm/">tekepon.net</a>.
+          <p>Table &amp; grass courtesy of <a href="http://www.lorestrome.com/pixel_archive/main.htm">Lorestrome Pixel Archive</a>
+          <p>Glorious title font, <a href="http://www.fontsquirrel.com/fonts/Brushstroke-Plain?q[term]=brush&q[search_check]=Y">Brushstroke Plain</a>, found amongst the acorns on <a href="http://www.fontsquirrel.com/">Font Squirrel</a>
+          <p>Bacon <img src="./images/bacon.png" class="bakon"/> from the darkest depths of the Sea of No Attribution Required &amp; Free for Commercial Use (no linksies because I was dumb and didn't save them.)
+        </div>
+      </div>
+      <div id="footer">
+        <a href="http://github.com/TheSmitchell/BakonSavr">BakonSavr</a> - (c) Sarah Mitchell 2013
+        <br/>
+        Sprites and Tilesets from <a href="http://www.tekepon.net/fsm/">tekepon.net</a> and <a href="http://www.lorestrome.com/pixel_archive/main.htm">Lorestrome Pixel Archive</a>
+        <br/>
+        <a href="http://www.fontsquirrel.com/fonts/Brushstroke-Plain?q[term]=brush&q[search_check]=Y">Brushstroke Plain</a> courtesy of <a href="http://www.fontsquirrel.com/">Font Squirrel</a> - "thanks for the install instructions!"
+        <br/>
+        Bacon <img src="./images/bacon.png" class="bakon"/> from the darkest depths of the Sea of No Attribution Required &amp; Free for Commercial Use
+      </div>
+    </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-12712949-2', 'thesmitchell.github.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
